@@ -1,5 +1,10 @@
 :root{
     --main-color: #f9af72;
+    --nut-: #f9af72;
+    --indigo: #6610f2;
+    --grass:#198754;
+    --primary: #0d6efd;
+    --danger: #dc3545;
 }
 .fredoka {
 font-family: "Fredoka", sans-serif;
@@ -65,24 +70,28 @@ font-variation-settings:
     color: var(--main-color);
 }
 .header .logo{
-    font-weight: 400px;
-    font-size: 25px;
     font-family: "Cairo", sans-serif;
     color: #fff;
     @media screen and (max-width: 790px) {
         width: 40%;
     }
+    transition: all 0.5s ease;
+}
+.move-right{
+    transform: translate(200px);
 }
 .intro-text{
     position: absolute;
     top: 35%;
     left: 50%;
     color: #fff;
-    z-index:9999;
+    z-index:9998;
     transform: translate( -52%,-50%);
 }
+
 .main-color{
     color: var(--main-color);
+    transition: all 0.4s ease;
 }
 .circle{
     width: 2.5rem;
@@ -115,7 +124,7 @@ font-variation-settings:
     left: -200px;
     z-index: 9999;
     background-color: #f8f9fa;
-    transition: 0.5s;
+    transition: 0.5s; 
 }
 .open{
     left: 0px;
@@ -130,8 +139,36 @@ font-variation-settings:
     text-align: center;
     cursor: pointer;
 }
-.setting-content{
-    
+.setting-content .options h4{
+    margin: 12px 0px;
+    color: #555;
+}
+.colors-list li{
+    cursor: pointer;
+    opacity: 0.3;
+    list-style-type: none;
+    width: 25px;
+    height: 25px;
+    transition: all 0.5s ease;
+}
+.colors-list li:first-child{
+    background-color: var(--nut-);
+}
+.colors-list li:nth-child(2){
+    background-color: var(--danger);
+}
+.colors-list li:nth-child(3){
+    background-color: var(--grass);
+}
+.colors-list li:nth-child(4){
+    background-color: var(--indigo);
+}
+.colors-list li:nth-child(5){
+    background-color: var(--primary);
+}
+.colors-list li.active{
+    opacity: 1;
+    border: 1px solid#666;
 }
 .icon{
     transition: 0.5s;
