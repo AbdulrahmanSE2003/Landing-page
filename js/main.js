@@ -8,16 +8,31 @@ arrayOfImgs.forEach(img => {
     preloadedImages.push(image);
 });
 
-let currentIndex = 0;
 
 setInterval(() => {
-    currentIndex = (currentIndex + 1) % preloadedImages.length; // Cycle through the images
-    page.style.backgroundImage = `url(${preloadedImages[currentIndex].src})`;
+    page.style.backgroundImage = `url(${preloadedImages[Math.floor(Math.random() * preloadedImages.length)].src})`;
 }, 7000);
+// switching Colors
+const colorsList = document.querySelectorAll(".colors-list li");
+
+colorsList.forEach(li=>{
+    li.addEventListener("click", (e)=>{
+        document.documentElement.style.setProperty("--main-color", e.target.dataset.color);
+        colorsList.forEach(selLi =>{
+            if(selLi.classList.contains("active")){
+                selLi.classList.remove("active");
+            }
+            li.classList.add("active");
+        })
+    })
+})
 
 let gear = document.querySelector(".setting-icon");
 let icon = document.querySelector(".setting-icon i");
+let logo = document.querySelector(".logo");
 gear.onclick= ()=>{
     gear.parentElement.classList.toggle("open");
     icon.classList.toggle("rotate-45");
+    logo.classList.toggle("move-right");
+    
 }
