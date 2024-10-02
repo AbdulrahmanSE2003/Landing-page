@@ -37,7 +37,7 @@ function randomize(){
         
         backgroundInterval = setInterval(() => {
             page.style.backgroundImage = `url(${preloadedImages[Math.floor(Math.random() * preloadedImages.length)].src})`;
-        }, 1000);
+        }, 7000);
     } 
 }
 /*switching Colors............................................................. */
