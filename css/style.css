@@ -83,7 +83,7 @@ font-variation-settings:
         border-radius: 15px;
     }
     .transform{
-        transform: translate( 0,65px);
+        transform: translate( 0,100px);
         /* margin-top: 75px; */
     }
     .menu-icon {
