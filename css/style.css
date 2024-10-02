@@ -16,13 +16,16 @@ font-variation-settings:
 "wdth" 100;
 }
 .landing-page{
-    min-height: 100vh ;
+    min-height: 100vh;
     background-image: url(../images/1.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     position: relative;
     transition: 0.6s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .landing-page .overlay{
     background-color: color(a98-rgb 0 0 0 / 0.35);
@@ -35,7 +38,10 @@ font-variation-settings:
 }
 .header{
     z-index: 2;
-    position: relative;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
     padding: 12px 25px;
     display: flex;
     justify-content: space-between;
@@ -49,12 +55,62 @@ font-variation-settings:
     width: 50%;
     margin: 0px;
     padding-left: 0px;
+    transition: all 0.3s ease;  
     @media screen and (max-width: 790px) {
         width: 60%;
     }
-    @media screen and (max-width: 550px) {
+    @media screen and (max-width: 600px) {
         width: 75%;
+        flex-direction: column;
     }
+}
+@media screen and (max-width: 768px) {
+    .links {
+        display: none;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .links.active {
+        display: flex; 
+        position: absolute;
+        top: 76px;
+        left: 50%;
+        transform: translate(-50%);
+        text-align: center;
+        width: 100%;
+        background-color: #333;
+        border-radius: 15px;
+    }
+    .transform{
+        transform: translate( 0,65px);
+        /* margin-top: 75px; */
+    }
+    .menu-icon {
+        display: block!important; /* Show the hamburger icon */
+        cursor: pointer;
+    }
+
+    .links a {
+        display: block;
+        margin: 15px 0;
+        text-align: center;
+        padding: 10px 0;
+        color: white;
+        z-index: 999999;
+    }
+
+    .links li {
+        margin: 10px 0;
+    }
+}
+.toggle-btn {
+    font-size: 18px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: none;
 }
 .links a{
     margin: 0px 10px;
@@ -62,6 +118,7 @@ font-variation-settings:
     text-decoration: none;
     opacity: 0.4;
     transition: 0.4s;
+    
 }
 .links a.active,
 .links a:hover{
@@ -72,8 +129,10 @@ font-variation-settings:
 .header .logo{
     font-family: "Cairo", sans-serif;
     color: #fff;
-    @media screen and (max-width: 790px) {
+    @media screen and (max-width: 600px) {
         width: 40%;
+        display: flex;
+        justify-content: flex-start;
     }
     transition: all 0.5s ease;
 }
@@ -81,17 +140,14 @@ font-variation-settings:
     transform: translate(200px);
 }
 .intro-text{
-    position: absolute;
-    top: 35%;
-    left: 50%;
     color: #fff;
-    z-index:9998;
-    transform: translate( -52%,-50%);
+    z-index:23;
+    transition: all 0.3s ease;
 }
 
 .main-color{
     color: var(--main-color);
-    transition: all 0.4s ease;
+    /* transition: all 0.001s ease; */
 }
 .circle{
     width: 2.5rem;
@@ -115,7 +171,9 @@ font-variation-settings:
 .instagram-icon {
     background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); /* Instagram multi-color gradient */
 }
-
+.linkedin-icon {
+    background: linear-gradient(45deg, #0077b5, #005582); /* LinkedIn blue gradient */
+}
 .setting-box{
     min-height: 100vh;
     width: 200px;
@@ -142,6 +200,7 @@ font-variation-settings:
 .setting-content .options h4{
     margin: 12px 0px;
     color: #555;
+    padding: 0px;
 }
 .colors-list li{
     cursor: pointer;
@@ -168,11 +227,36 @@ font-variation-settings:
 }
 .colors-list li.active{
     opacity: 1;
-    border: 1px solid#666;
+    border: 1px solid#fff;
 }
 .icon{
     transition: 0.5s;
 }
 .rotate-45{
     transform:rotate(150deg) ;
+}
+.options{
+    background-color: rgb(222, 222, 222);
+}
+.options h4{
+    font-size: 16px;
+    text-align: center;
+}
+.random-background button{
+    opacity: 0.5;
+    color: #fff;
+    border: none;
+    padding: 5px 16px;
+    border-radius: 6px;
+    margin-bottom: 11px;
+    transition: all 0.3s ease;
+}
+.random-background button.active, .random-background button:hover{
+    opacity: 1;
+}
+.yes{
+    background-color: #198754;
+}
+.no{
+    background-color: var(--danger);
 }
