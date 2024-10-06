@@ -1,10 +1,10 @@
 let page = document.querySelector(".landing-page");
-let arrayOfImgs = ["1.jpg","2.jpg","3.jpg","26024.jpg", "26027.jpg", "26042.jpg", "26103.jpg", "60677.jpg",];
+let arrayOfImgs = ["1.jpg","2.jpg","3.jpg","26027.jpg"];
 let preloadedImages = [];
 let backgroundOption;
 let backgroundInterval;
 let controlBg = document.querySelectorAll(".random-background button");
-
+let tabs = document.querySelectorAll(".links a");
 
 
 /*Random Background........................................................ */
@@ -17,10 +17,8 @@ arrayOfImgs.forEach(img => {
 /*Checking Background Option In Local Storage */
 let backgroundLocal = localStorage.getItem("bgOption");
 if (backgroundLocal !== null && backgroundLocal == "true"){
-    console.log("not empty");
     backgroundOption =true;
         randomize();
-        console.log("tru");
 } else {
     backgroundOption=false;
     let no = document.querySelector(".no");
@@ -29,10 +27,8 @@ if (backgroundLocal !== null && backgroundLocal == "true"){
     yes.classList.remove("active");
 }
 
-
 /*Randomize Function */
 function randomize(){
-    console.log(backgroundOption);
     if (backgroundOption ==true){
         
         backgroundInterval = setInterval(() => {
@@ -67,9 +63,6 @@ if(localStorage.getItem("mainColor")!==null){
     })
 }
 
-
-
-
 /*Gear Rotation............................................................... */
 let gear = document.querySelector(".setting-icon");
 let icon = document.querySelector(".setting-icon i");
@@ -91,6 +84,16 @@ toggleBtn.addEventListener('click', () => {
     links.classList.toggle('active');
     introText.classList.toggle("transform");
 });
+
+/*Changing Active Tab*/
+tabs.forEach(tab =>{
+    tab.addEventListener("click",(el)=> {
+        tabs.forEach(remAct => {
+            remAct.classList.remove("active");
+        })
+        el.currentTarget.classList.add("active");
+    })
+})
 
 /*Random Background Control......................................................*/
 controlBg.forEach(btn => {
