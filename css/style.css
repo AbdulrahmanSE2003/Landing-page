@@ -292,13 +292,13 @@ body.dark-overlay::before {
     letter-spacing: 10px;
     transition: all 0.4s ease;
     @media screen and (max-width:700px){
-        font-size: 8.5rem; 
+        font-size: 7.5rem; 
     }
     @media screen and (max-width:575px){
-        font-size: 7rem; 
+        font-size: 6rem; 
     }
     @media screen and (max-width:500px){
-        font-size: 6rem; 
+        font-size: 5rem; 
     }
 }
 .title h4{
