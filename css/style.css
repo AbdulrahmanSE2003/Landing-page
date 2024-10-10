@@ -3,11 +3,12 @@
     --nut-: #f9af72;
     --indigo: #7860e5;
     --grass:#198754;
-    --primary: #0d6efd;
+    --primary: #0b68f4;
     --danger: #dc3545;
 }
 .body{
     background-color: #f0f0f0;
+    overflow-x: hidden;
 }
 .fredoka {
 font-family: "Fredoka", sans-serif;
@@ -20,14 +21,14 @@ font-variation-settings:
 }
 body.dark-overlay::before {
     content: '';
-    position: fixed;  /* This makes sure the overlay stays fixed across the viewport */
+    position: fixed;  
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(34, 34, 34, 0.1); /* Dark layer opacity */
-    z-index: 999;  /* Ensure it’s on top */
-    pointer-events: none;  /* So it doesn’t interfere with interactions */
+    background-color: rgba(34, 34, 34, 0.1); 
+    z-index: 999; 
+    pointer-events: none;  
 }
 .landing-page{
     min-height: 100vh;
@@ -40,7 +41,6 @@ body.dark-overlay::before {
     display: flex;
     align-items: center;
     justify-content: center;
-    filter: blur();
 }
 .landing-page .overlay{
     background-color: color(a98-rgb 0 0 0 / 0.35);
@@ -52,7 +52,7 @@ body.dark-overlay::before {
     z-index: 1;
 }
 .header{
-    z-index: 2;
+    z-index: 999999;
     position: fixed;
     top: 0px;
     left: 0px;
@@ -100,11 +100,8 @@ body.dark-overlay::before {
         padding: 14px 14px;
         transition: all 0.3s ease;
     }
-    /* .transform{
-        transform: translate( 0,120px);
-    } */
     .menu-icon {
-        display: block!important; /* Show the hamburger icon */
+        display: block!important; 
         cursor: pointer;
     }
 
@@ -179,24 +176,24 @@ body.dark-overlay::before {
     transition: 0.3s ease;
 }
 .circle:hover{
-    transform: scale(1.2); /* Increase size on hover */
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+    transform: scale(1.2);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); 
 }
 
 .whatsapp-icon {
-    background: linear-gradient(45deg, #25D366, #128C7E); /* WhatsApp's green gradient */
+    background: linear-gradient(45deg, #25D366, #128C7E);
 }
 .facebook-icon {
-    background: linear-gradient(45deg, #1877F2, #3b5998); /* Facebook blue gradient */
+    background: linear-gradient(45deg, #1877F2, #3b5998); 
 }
 .twitter-icon {
-    background: linear-gradient(45deg, #1DA1F2, #0d8bf2); /* Twitter blue gradient */
+    background: linear-gradient(45deg, #1DA1F2, #0d8bf2);
 }
 .instagram-icon {
-    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); /* Instagram multi-color gradient */
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); 
 }
 .linkedin-icon {
-    background: linear-gradient(45deg, #0077b5, #005582); /* LinkedIn blue gradient */
+    background: linear-gradient(45deg, #0077b5, #005582); 
 }
 .setting-box{
     min-height: 100vh;
@@ -210,6 +207,7 @@ body.dark-overlay::before {
 }
 .open{
     left: 0px;
+    z-index: 9999999999999;
 }
 .setting-icon{
     position: absolute;
@@ -296,20 +294,76 @@ body.dark-overlay::before {
     @media screen and (max-width:700px){
         font-size: 8.5rem; 
     }
-    @media screen and (max-width:560px){
-        font-size: 7.5rem; 
+    @media screen and (max-width:575px){
+        font-size: 7rem; 
     }
     @media screen and (max-width:500px){
-        font-size: 6.5rem; 
+        font-size: 6rem; 
     }
 }
 .title h4{
-    font-size: 4.5rem;
+    font-size: 5.5rem;
     font-weight: 600;
     position: absolute;
-    letter-spacing: 5px;
+    letter-spacing: 8px;
+    @media screen and (max-width:700px){
+        font-size: 4.5rem; 
+    }
+    @media screen and (max-width:575px){
+        font-size: 3.7rem; 
+    }
+    @media screen and (max-width:500px){
+        font-size: 3rem; 
+    }
 }
 .about-section{
     
 }
 /* End About Us */
+
+/* Start Skills */
+#skills{
+    background-color: #cccccc66;
+}
+#skills-container{
+    width: 90%;
+}
+.skill-name{
+    z-index: 5;
+    font-size: 1.2rem;
+    position: relative;
+    color: rgb(0, 0, 0, 0.9);
+    font-weight: 500;
+}
+.skill-progress span{
+    width: 0;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--main-color);
+    transition: all 2s ease;
+    display: block;
+}
+.skill-progress {
+    position: relative;
+    height: 30px;
+    background-color: #cccccc66;
+    box-sizing: border-box;
+    width: 80%;      
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 5px 20px 5px 10px;
+}
+.skill-box i{
+    font-size: 30px;           
+    padding:0px 0px 0px 10px;  
+    color: #495057;
+}
+.html{
+    color: #ff7d09 !important;
+}
+.bs{
+    color: var(--indigo) !important;
+}
+/* End Skills */

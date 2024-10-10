@@ -115,5 +115,17 @@ controlBg.forEach(btn => {
         
     })
 })
-
-
+//  Start Animating Skills
+let skills = document.querySelector(".skills")
+window.addEventListener('scroll', () => {
+    let skillsOffset = skills.offsetTop;
+    let windowHeight = window.innerHeight;
+    let scrollTop = window.scrollY;
+    if ((scrollTop + windowHeight) > skillsOffset + 100){
+        let allSkills = document.querySelectorAll(".skill-box .skill-progress span");
+        allSkills.forEach(skill =>{
+            skill.style.width = skill.dataset.progress;
+            
+        })
+    }
+});
