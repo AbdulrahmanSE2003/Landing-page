@@ -125,7 +125,55 @@ window.addEventListener('scroll', () => {
         let allSkills = document.querySelectorAll(".skill-box .skill-progress span");
         allSkills.forEach(skill =>{
             skill.style.width = skill.dataset.progress;
-            
         })
     }
 });
+
+// Start Gallery Section
+
+let imageBox = document.querySelectorAll(".gallery img");
+imageBox.forEach(img =>{
+    img.addEventListener("click", e=> {
+        //Creating PopUp Element
+        let popupOverlay = document.createElement("div");
+        
+        //Adding Class To PopUb Element
+        popupOverlay.className = "popub-overlay";
+        
+        //Adding PopUb Element To Body
+        document.body.appendChild(popupOverlay);
+        
+        //Creating PopUb Box
+        let popubBox = document.createElement("div");
+
+        //Adding Class To Popub Box
+        popubBox.className = "popubBox";
+
+        //Appending popub Box
+        popupOverlay.appendChild(popubBox);
+        
+
+        //Creating popub Image
+        let popubImage = document.createElement("img");
+        
+        //Adding Src
+        popubImage.src = img.src
+        popubImage.className="popubImage";
+
+        //Appending newImage To popub Box
+        popubBox.appendChild(popubImage);
+
+        //Adding closing button
+        let closeBtn = document.createElement("button");
+        closeBtn.className = "closeBtn";
+        closeBtn.textContent = "X"
+        popubBox.prepend(closeBtn);
+
+        //Removing popub Box
+        closeBtn.addEventListener("click", e =>{
+            closeBtn.parentElement.remove();
+            document.querySelector(".popub-overlay").remove();
+        })
+    })
+})
+// End Gallery Section
