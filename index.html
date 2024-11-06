@@ -21,7 +21,7 @@
         <i class="fa-solid fa-gear fa-2x icon"></i>
     </div>
     <div class="setting-content">
-        <div class="options px-2 rounded-3 text-center p-1 m-3">
+        <div class="options rounded-3 text-center p-1 m-3">
             <h4 class=>Colors</h4>
             <ul class="colors-list px-2 mx-auto my-3 ps-0 text-center">
                 <li class="d-inline-block active rounded-circle" data-color="#f9af72"></li>
@@ -38,11 +38,48 @@
                 <button class="no btn-sm" value="false">No</button>
             </div>
         </div>
+        <div class="bullet-control options px-2 rounded-3 text-center p-1 m-3">
+            <h4 class="">Bullets</h4>
+            <div class=" px-2 d-flex justify-content-center">
+                <button class="yes-bul active mx-3" value="true">Yes</button>
+                <button class="no-bul btn-sm" value="false">No</button>
+            </div>
+        </div>
+        <div class="reset px-2 rounded-3 text-center p-1 m-3">
+            <div class=" px-2 d-flex justify-content-center">
+                <button class="active m-3 p-1 px-4" id="reset">Reset</button>
+            </div>
+        </div>
     </div>
 </div>
 <!-- End Setting Box -->
+<!-- Start Bullets  -->
+<div class="bullets">
+    <div class="bullet" data-section="about">
+        <div class="bullet-name">About-Us</div>
+    </div>
+    <div class="bullet" data-section="skills">
+        <div class="bullet-name">Skills</div>
+    </div>
+    <div class="bullet" data-section="gallery">
+        <div class="bullet-name">Gallery</div>
+    </div>
+    <div class="bullet" data-section="timeline">
+        <div class="bullet-name">Timeline</div>
+    </div>
+    <div class="bullet" data-section="features">
+        <div class="bullet-name">Features</div>
+    </div>
+    <div class="bullet" data-section="testemonials">
+        <div class="bullet-name">Testemonials</div>
+    </div>
+    <div class="bullet" data-section="contact">
+        <div class="bullet-name">contact</div>
+    </div>
+</div>
+<!-- End Bullets  -->
 <!-- Start Landing Page -->
-<div class="home">
+<div class="home" id="home">
     <div class="landing-page"></div>
     <div class="overlay"></div>
     <!-- Start Navbar -->
@@ -54,10 +91,11 @@
             <i class="fa-solid fa-bars fa-2x"></i>
         </div>
         <ul class="links col-md-8">
-            <a class="active main-color" href="#"><li>Home</li></a>
+            <a class="active main-color" href="#home"><li>Home</li></a>
             <a class="main-color" href="#about"><li>About</li></a>
             <a class="main-color" href="#skills"><li>Skills</li></a>
             <a class="main-color" href="#gallery"><li>Gallery</li></a>
+            <a class="main-color" href="#timeline" id="discover"><li>Discover</li></a>
         </ul>
     </div>
     <!-- End Navbar -->
@@ -92,7 +130,7 @@
 </div>
 <!-- End Landing Page -->
 <!-- Start About Us -->
-<div class="about-section" id="about">
+<section class="about-section" id="about">
     <div class="title position-relative d-flex justify-content-center align-items-center text-center pb-3">
         <h2 class="m-0 main-color">ABOUT</h2>
         <h4 class="m-0">ABOUT</h4>
@@ -110,7 +148,7 @@
             </div>
         </div>
     </div>
-</div>
+</section>
 <!-- End About Us -->
 <!-- Start Our Skills -->
 <section id="skills">
@@ -160,7 +198,7 @@
             </div>
             <div class="row mx-1">
                 <div class="skill-box d-flex align-items-center bg-white rounded-2 mb-4 p-3 ps-1">
-                    <i class="fa-brands fa-vuejs text-success mx-auto fs-2  ps-3 col-2"></i>
+                    <i class="fa-brands fa-vuejs text-success mx-auto fs-2 ps-3 col-2"></i>
                     <div class="skill-progress rounded-3 col-10"> 
                         <span class="rounded-3" data-progress="25%"></span>
                         <div class="skill-name text-center">Vue.js</div>
@@ -226,7 +264,7 @@
 </section>
 <!-- End Our Skills -->
 <!-- Start Our Gallery -->
-<div class="gallery text-center my-4" id="gallery">
+<section class="gallery text-center my-4" id="gallery">
     <div class="title position-relative bg-white d-flex justify-content-center align-items-center text-center pb-3">
         <hr class="my-1 mt-2">
         <h2 class="m-0 main-color">Gallery</h2>
@@ -256,7 +294,7 @@
         </div>
     </div>
     <hr>
-</div>
+</section>
 <!-- End Our Gallery -->
 <!-- Start Time Line -->
 <section id="timeline">
@@ -324,7 +362,6 @@
         <h4 class="m-0">Features</h4>
         <hr class="my-1 mb-3">
     </div>
-    <hr>
     <div class="container">
         <div class="row justify-content-evenly g-2 mx-3">
             <div class="featcard col-12 col-md-3 col-lg-3">
@@ -422,8 +459,77 @@
     </div>
 </section>
 <!-- /* End Features  */ -->
-    <script src="https://kit.fontawesome.com/9a16a36fbb.js"crossorigin="anonymous"></script>
-    <script src="js/main.js"> </script>
+
+<!-- Start testemonials -->
+<section id="testemonials" class="py-4 pb-5">
+    <div class="title position-relative bg-white d-flex justify-content-center align-items-center text-center pb-3">
+        <hr class="my-1 mt-2">
+        <h2 class="m-0 main-color">testemonials</h2>
+        <h4 class="m-0">testemonials</h4>
+        <hr class="my-1 mb-3">
+    </div>
+    <div class="container">
+        <div class="row text-center justify-content-evenly">
+            <div class="ts-box col-md-3 mx-2">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit rerum laboriosam illum a nulla voluptas placeat repudiandae?</p>
+                <div class="d-flex justify-content-start">
+                    <img src="images/Avatars/4.jpg" alt="" class="rounded-circle me-3 align-items-center">
+                    <h4 class="mt-2">Ahmed Bahnasi</h4>                    
+                </div>
+                <hr>
+                <h6><span>Ceo </span>Route</h6>
+            </div>
+            <div class="ts-box col-md-3 mx-2">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit rerum laboriosam illum a nulla voluptas placeat repudiandae?</p>
+                <div class="d-flex justify-content-start">
+                    <img src="images/Avatars/3.jpg" alt="" class=" rounded-circle me-3 align-items-center">
+                    <h4 class="mt-2">Mostafa Khater</h4>                    
+                </div>
+                <hr>
+                <h6><span>Fullstack/ </span>Developer</h6>
+            </div>
+            <div class="ts-box col-md-3 mx-2">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit rerum laboriosam illum a nulla voluptas placeat repudiandae?</p>
+                <div class="d-flex justify-content-start">
+                    <img src="images/Avatars/5.jpg" alt="" class=" rounded-circle me-3 align-items-center">
+                    <h4 class="mt-2">Shaimaa Ali</h4>                    
+                </div>
+                <hr>
+                <h6><span>Instructor/ </span> Route</h6>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End testemonials -->
+<section class="contact" id="contact">
+    <hr>
+    <div style="background-color: #ebebeb !important;" class="title position-relative bg-white d-flex justify-content-center align-items-center text-center pb-3">
+        <hr class="my-1 mt-2">
+        <h2 class="m-0 main-color">Contact</h2>
+        <h4 class="m-0">Contact</h4>
+        <hr class="my-1 mb-3">
+    </div>
+    <div class="container">
+        <form class="d-flex justify-content-center align-items-center " action="">
+            <div class="left w-50 py-4 mx-2">
+                <div class="d-flex flex-column my-4 py-4">
+                    <input class="my-2 form-control" type="text" name="fname" id="fname" placeholder="Name">
+                    <input class="my-2 form-control" type="number" name="age" id="age" placeholder="Age">
+                    <input class="my-2 form-control" type="email" name="email" id="email" placeholder="E-mail">
+                    <input class="my-2 form-control" type="text" name="subject" id="subject" placeholder="Subject">
+                </div>
+            </div>
+            <div class="right w-50 mx-2">
+                <div class="d-flex flex-column justify-content-between">
+                    <textarea name="msg" id="msg"></textarea>
+                    <input class="form-control" type="submit" value="Send">
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<script src="https://kit.fontawesome.com/9a16a36fbb.js"crossorigin="anonymous"></script>
+<script src="js/main.js"> </script>
 </body>
 </html>
 

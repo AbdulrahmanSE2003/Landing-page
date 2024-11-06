@@ -4,19 +4,23 @@ let preloadedImages = [];
 let backgroundOption;
 let backgroundInterval;
 let controlBg = document.querySelectorAll(".random-background button");
+let controlBul = document.querySelectorAll(".bullet-control button")
+let bullets = document.querySelector(".bullets");
 let tabs = document.querySelectorAll(".links a");
+let navBullet =  document.querySelectorAll(".bullets .bullet");
+let Sections= document.querySelectorAll("section");
 
 
-/*Random Background........................................................ */
+/* SECTION Random Background........................................................ */
 arrayOfImgs.forEach(img => {
     const image = new Image();
     image.src = `images/${img}`;
     preloadedImages.push(image);
 });
 
-/*Checking Background Option In Local Storage */
+/* SECTION - Checking Background Option In Local Storage */
 let backgroundLocal = localStorage.getItem("bgOption");
-if (backgroundLocal !== null && backgroundLocal == "true"){
+if (backgroundLocal == null || backgroundLocal == "true"){
     backgroundOption =true;
         randomize();
 } else {
@@ -27,10 +31,23 @@ if (backgroundLocal !== null && backgroundLocal == "true"){
     yes.classList.remove("active");
 }
 
-/*Randomize Function */
+// SECTION -  Checking Bullet in Local Storage 
+let noBul = document.querySelector(".no-bul");
+let yesBul = document.querySelector(".yes-bul");
+// console.log(localStorage.getItem("BulletCtrl"));
+
+if (localStorage.getItem("BulletCtrl")=="false"){
+    // console.log("here im");
+    bullets.style.display = "none";
+    noBul.classList.add("active");
+    yesBul.classList.remove("active");
+} else {
+    bullets.style.display = "block";
+}
+
+/*SECTION -  Randomize Function */
 function randomize(){
     if (backgroundOption ==true){
-        
         backgroundInterval = setInterval(() => {
             page.style.backgroundImage = `url(${preloadedImages[Math.floor(Math.random() * preloadedImages.length)].src})`;
         }, 7000);
@@ -63,6 +80,13 @@ if(localStorage.getItem("mainColor")!==null){
     })
 }
 
+/* SECTION - Reset button */
+let reset= document.querySelector("#reset");
+reset.addEventListener("click", ()=>{
+    localStorage.clear();
+    window.location.reload();
+})
+
 /*Gear Rotation............................................................... */
 let gear = document.querySelector(".setting-icon");
 let icon = document.querySelector(".setting-icon i");
@@ -88,6 +112,7 @@ toggleBtn.addEventListener('click', () => {
 /*Changing Active Tab*/
 tabs.forEach(tab =>{
     tab.addEventListener("click",(el)=> {
+        // el.preventDefault();
         tabs.forEach(remAct => {
             remAct.classList.remove("active");
         })
@@ -115,6 +140,101 @@ controlBg.forEach(btn => {
         
     })
 })
+
+// Manging Bullets
+controlBul.forEach(btn =>{
+    // console.log(btn);
+    btn.addEventListener("click", (e) =>{
+        // console.log(e.target);
+        // console.log(e.target.parentElement.querySelectorAll(".activ"));
+        e.target.parentElement.querySelectorAll(".active").forEach(actbtn =>{
+            // console.log(actbtn);
+            actbtn.classList.remove("active");
+        })
+        e.target.classList.add("active");
+        if(e.target.value=== "false"){
+            bullets.style.display = "none";
+            localStorage.setItem("BulletCtrl", false);
+        } else {
+            bullets.style.display = " block"
+            localStorage.setItem("BulletCtrl", true);
+        }
+    })
+})
+
+// SECTION - Bullet nav
+
+// console.log(navBullet);
+navBullet.forEach(bullet =>{
+    bullet.addEventListener("click", (el) =>{
+        navBullet.forEach(white=>{
+            // console.log(white);
+            white.style.backgroundColor= "transparent";
+        })
+        el.target.style.backgroundColor= "rgb(173 167 167)";
+        // console.log(el.target);
+        // console.log(el.target.dataset.section);
+        document.querySelector(`#${el.target.dataset.section}`).scrollIntoView({
+            behavior:"smooth"
+        });
+    })
+})
+
+
+// SECTION - Making Sections Dynamic
+let currentSection= "";
+window.addEventListener("scroll", ()=>{
+    // console.log(window.scrollY);
+    
+    Sections.forEach(section=>{
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+
+        if(window.scrollY>= sectionTop-sectionHeight /3){
+            currentSection= section.getAttribute("id");
+            // console.log(currentSection);
+            //TODO - Edit after timeline scroll
+        }else if (window.scrollY <=240){
+            currentSection="home";
+        } else if(window.scrollY>=3425){
+            
+        }
+    })
+
+    if(window.scrollY>=3425){
+        subTab = document.querySelector("#discover");
+        tabs.forEach(tab =>{
+            // console.log(tab.getAttribute("href").slice(1));
+            tab.classList.remove("active");
+            subTab.classList.add("active");
+        })
+    }else{
+        tabs.forEach(tab =>{
+            // console.log(tab.getAttribute("href").slice(1));
+            tab.classList.remove("active");
+            if((tab.getAttribute("href").slice(1)) == currentSection){
+                tab.classList.add("active")
+            }
+        })
+    }
+    
+
+    //NOTE - Bullet dynamic part
+    navBullet.forEach(bullet=>{
+        console.log(bullet.dataset.section);
+        console.log(currentSection);
+        
+        if(currentSection == bullet.dataset.section){
+            console.log("match");
+            
+            navBullet.forEach(white=>{
+                white.style.backgroundColor ="transparent";
+            })
+            bullet.style.backgroundColor= "rgb(173 167 167)";
+        }
+    })
+})
+
 //  Start Animating Skills
 let skills = document.querySelector(".skills")
 window.addEventListener('scroll', () => {
