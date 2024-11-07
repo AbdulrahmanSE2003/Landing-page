@@ -190,7 +190,7 @@ window.addEventListener("scroll", ()=>{
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
 
-        if(window.scrollY>= sectionTop-sectionHeight /3){
+        if(window.scrollY>= (sectionTop-sectionHeight /4)){
             currentSection= section.getAttribute("id");
             // console.log(currentSection);
             //TODO - Edit after timeline scroll
@@ -221,11 +221,11 @@ window.addEventListener("scroll", ()=>{
 
     //NOTE - Bullet dynamic part
     navBullet.forEach(bullet=>{
-        console.log(bullet.dataset.section);
-        console.log(currentSection);
+        // console.log(bullet.dataset.section);
+        // console.log(currentSection);
         
         if(currentSection == bullet.dataset.section){
-            console.log("match");
+            // console.log("match");
             
             navBullet.forEach(white=>{
                 white.style.backgroundColor ="transparent";
@@ -297,3 +297,40 @@ imageBox.forEach(img =>{
     })
 })
 // End Gallery Section
+
+/*NOTE - Closing Menu With Any Click */
+let burgerIcon = document.querySelector(".burger");
+let lis = document.querySelectorAll(".links li");
+
+burgerIcon.onclick = function (el){
+    el.stopPropagation();
+    links.classList.toggle("active");
+}
+links.onclick = function (el){
+    el.stopPropagation();
+}
+window.addEventListener("click", (el)=>{
+    // console.log(el.target);
+    // console.log(burgerIcon);
+    // console.log(lis);
+    if(el.target !== burgerIcon && el.target!== links){
+        if (links.classList.contains("active")){
+            links.classList.remove("active");
+        }
+    }
+})
+
+/*SECTION - Up Button */
+
+let upBtn = document.querySelector(".up");
+window.addEventListener("scroll", ()=>{
+    if (window.scrollY>=1000){
+        upBtn.style.display = "block";
+    } else{
+        upBtn.style.display = "none";
+    }
+})
+
+upBtn.onclick = function(){
+    window.scrollTo(0, 0)
+}

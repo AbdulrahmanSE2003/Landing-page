@@ -118,7 +118,7 @@ body.dark-overlay::before {
 
     .links li {
         margin: 6px 0;
-        transition: all 0.4s ease-in-out ;
+        transition: all 0.4s ease-in-out , color 0.1s;
     }
 }
 .toggle-btn {
@@ -364,12 +364,14 @@ body.dark-overlay::before {
     opacity: 1;
     color: #fff;
     border: none;
-    padding: 5px 22px !important;
+    padding: 5px 39px !important;
     border-radius: 7px;
     margin-bottom: 11px;
-    margin-top: 40px !important;
+    margin-top: -5px !important;
     transition: all 0.3s ease;
     background: var(--danger);
+    font-weight: 500;
+    font-size: 1.3rem;
 }
 .reset button:hover{
     background: #9a252f;
@@ -460,6 +462,7 @@ body.dark-overlay::before {
     padding:0px 0px 0px 10px;  
     color: #495057;
 }
+
 .html{
     color: #ff7d09 !important;
 }
@@ -469,6 +472,10 @@ body.dark-overlay::before {
 /* End Skills */
 
 /* Start Our Gallery */
+.bottom{
+    position: relative;
+    bottom: 16px;
+}
 .gallery .container .images-box img{
     width: 101%;
     height: 93%;
@@ -784,20 +791,18 @@ box-shadow: 0 0 0 0 #565656;
     background-color: #ebebeb;
 }
 .contact .container input:focus,.contact .container textarea:focus{
-    /* outline: 2px solid var(--main-color); */
-    box-shadow: 0px 0px 0px 0.15rem var(--main-color);
-    border: none;
+    box-shadow: none !important;
+    border: 2px solid var(--main-color);
 }
-.contact .container{
-    @media screen {
-        
-    }
+.contact form{
+    margin-top: -40px;
 }
 .contact textarea{
     width: 100%;
     height: calc(50px *3);
     border-radius: 6px;
     resize: none;
+    outline: none;
 }
 .contact .container .right input{
     background-color: var(--grass);
@@ -809,3 +814,55 @@ box-shadow: 0 0 0 0 #565656;
     background-color: #1a7e44;
 }
 /*  END Contact*/
+
+/* Start Footer  */
+.footer{
+    background-color: black;
+    color: #fff;
+    padding: 7px 15px;
+}
+.lists ul h3{
+    font-weight: 400;
+}
+@media (max-width:768px) {
+    .lists{
+        flex-direction: column;
+    }
+}
+.lists ul li{
+    font-weight: 300;
+    color: #c7c1c1bd;
+    list-style-type: none;
+    transition: all 0.4s ;
+    cursor: pointer;
+    margin: 4px 0px;
+}
+.lists ul li:hover{
+    color: #fff;
+}
+.footer >h3{
+    color: #c7c1c1bd;
+    font-size: 1rem;
+}
+.brand{
+    color: white;
+    font-weight: 500;
+    font-size: 1.4rem;
+}
+/* End Footer  */
+/* Up Arrow  */
+.up{
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background-color: var(--main-color);
+    color: #fff;
+    padding: 3px 12px;
+    font-size: 29px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: none;
+}
+.up i{
+    transform: rotate(180deg);
+}
